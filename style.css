@@ -12,3 +12,7 @@
     width: 60px;
     height: 60px;
 }
+
+.clicked {
+    background-color: blueviolet;
+}
