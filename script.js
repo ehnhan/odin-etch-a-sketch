@@ -1,12 +1,20 @@
 function createGrid(gridSize) {
     const parent = document.querySelector(".container");
 
-    for (let row = 0; row < gridSize; row++) {
-        let square = document.createElement("div");
-        square.classList.add("square");        
-        square.textContent = row;
-        parent.appendChild(square);
+    let counter = 0;
+    for (let rowIndex = 0; rowIndex < gridSize; rowIndex++) {
+        let rowDiv = document.createElement("div");
+        rowDiv.classList.add("row");        
+
+        for (let colIndex = 0; colIndex < gridSize; colIndex++) {
+            let square = document.createElement("div");
+            square.classList.add("square");        
+            square.textContent = counter++;
+            rowDiv.appendChild(square)
+        }
+
+        parent.appendChild(rowDiv);
     }
 }
 
-createGrid(5);
+createGrid(16);
