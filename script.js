@@ -1,6 +1,10 @@
 const parent = document.querySelector(".container");
 
 function createGrid(gridSize) {
+    while (parent.hasChildNodes()) {
+        parent.removeChild(parent.firstChild);
+    }
+
     let counter = 0;
     for (let rowIndex = 0; rowIndex < gridSize; rowIndex++) {
         let rowDiv = document.createElement("div");
@@ -24,3 +28,13 @@ parent.addEventListener("mouseover", (e) => {
         e.target.classList.add("clicked");
     }        
 });
+
+const resizeBtn = document.querySelector(".resizeBtn");
+
+resizeBtn.addEventListener("click", (e) => {
+    let size = Number(prompt("Please enter a number between 1-100."));
+
+    if (size >= 1 && size <= 100) {
+        createGrid(size);
+    }
+})
