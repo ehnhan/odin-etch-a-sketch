@@ -13,7 +13,7 @@ function createGrid(gridSize) {
         for (let colIndex = 0; colIndex < gridSize; colIndex++) {
             let square = document.createElement("div");
             square.classList.add("square");        
-            square.textContent = counter++;
+            //square.textContent = counter++;
             rowDiv.appendChild(square)
         }
 
