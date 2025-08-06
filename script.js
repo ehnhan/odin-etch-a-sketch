@@ -1,5 +1,9 @@
 const parent = document.querySelector(".container");
 
+function randInt() {
+    return Math.floor(Math.random() * 256);
+}
+
 function createGrid(gridSize) {
     while (parent.hasChildNodes()) {
         parent.removeChild(parent.firstChild);
@@ -12,7 +16,7 @@ function createGrid(gridSize) {
 
         for (let colIndex = 0; colIndex < gridSize; colIndex++) {
             let square = document.createElement("div");
-            square.classList.add("square");        
+            square.classList.add("square");
             //square.textContent = counter++;
             rowDiv.appendChild(square)
         }
@@ -26,6 +30,8 @@ createGrid(16);
 parent.addEventListener("mouseover", (e) => {
     if (e.target.classList.contains("square")) {
         e.target.classList.add("clicked");
+        e.target.style.backgroundColor = `rgb(${randInt()}, ${randInt()}, ${randInt()})`;       
+
     }        
 });
 
